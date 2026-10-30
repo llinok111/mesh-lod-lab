@@ -1,0 +1,124 @@
+{
+  "generatedAt": "2026-10-30T16:42:41.791Z",
+  "node": "v24.19.0",
+  "config": {
+    "reps": 7,
+    "samples": 16000,
+    "seed": 11,
+    "ratios": [
+      0.5,
+      0.25,
+      0.1
+    ]
+  },
+  "mesh": {
+    "triangles": 5120,
+    "vertices": 2562,
+    "diagonal": 5.607,
+    "surfaceArea": 13.9808
+  },
+  "coldStartMs": 40.35,
+  "rows": [
+    {
+      "ratio": 0.5,
+      "targetTriangles": 2560,
+      "qem": {
+        "triangles": 2560,
+        "vertices": 1282,
+        "coldMs": 40.35,
+        "medianMs": 16.23,
+        "minMs": 14.52,
+        "p95Ms": 27.25,
+        "stddevMs": 5.05,
+        "relStddev": 0.2692,
+        "samples": 7,
+        "maxErrorPctDiag": 0.039,
+        "rmsErrorPctDiag": 0.014
+      },
+      "baseline": {
+        "triangles": 2574,
+        "gridCells": 31,
+        "coldMs": 0,
+        "medianMs": 15.46,
+        "minMs": 15.34,
+        "p95Ms": 24.42,
+        "stddevMs": 3.14,
+        "relStddev": 0.1876,
+        "samples": 7,
+        "maxErrorPctDiag": 0.195,
+        "rmsErrorPctDiag": 0.043
+      },
+      "errorImprovement": 4.94
+    },
+    {
+      "ratio": 0.25,
+      "targetTriangles": 1280,
+      "qem": {
+        "triangles": 1280,
+        "vertices": 642,
+        "coldMs": 40.35,
+        "medianMs": 15.75,
+        "minMs": 14.78,
+        "p95Ms": 18.66,
+        "stddevMs": 1.25,
+        "relStddev": 0.0783,
+        "samples": 7,
+        "maxErrorPctDiag": 0.093,
+        "rmsErrorPctDiag": 0.025
+      },
+      "baseline": {
+        "triangles": 1303,
+        "gridCells": 21,
+        "coldMs": 0,
+        "medianMs": 12.83,
+        "minMs": 12.4,
+        "p95Ms": 13.34,
+        "stddevMs": 0.29,
+        "relStddev": 0.0224,
+        "samples": 7,
+        "maxErrorPctDiag": 0.407,
+        "rmsErrorPctDiag": 0.042
+      },
+      "errorImprovement": 4.38
+    },
+    {
+      "ratio": 0.1,
+      "targetTriangles": 512,
+      "qem": {
+        "triangles": 512,
+        "vertices": 258,
+        "coldMs": 40.35,
+        "medianMs": 18,
+        "minMs": 17.27,
+        "p95Ms": 22.48,
+        "stddevMs": 1.71,
+        "relStddev": 0.0914,
+        "samples": 7,
+        "maxErrorPctDiag": 0.18,
+        "rmsErrorPctDiag": 0.058
+      },
+      "baseline": {
+        "triangles": 495,
+        "gridCells": 12,
+        "coldMs": 0,
+        "medianMs": 10.89,
+        "minMs": 10.43,
+        "p95Ms": 11.55,
+        "stddevMs": 0.34,
+        "relStddev": 0.0312,
+        "samples": 7,
+        "maxErrorPctDiag": 1.078,
+        "rmsErrorPctDiag": 0.26
+      },
+      "errorImprovement": 5.99
+    }
+  ],
+  "headline": {
+    "reductionPct": 90,
+    "qemMaxErrorPctDiag": 0.18,
+    "baselineMaxErrorPctDiag": 1.078,
+    "improvementX": 5.99,
+    "qemMedianMs": 18,
+    "baselineMedianMs": 10.89
+  }
+}

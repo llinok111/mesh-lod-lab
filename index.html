@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mesh-lod-lab — QEM decimation vs vertex clustering</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #0b0e14; color: #e6edf3;
+    font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  #app { position: fixed; inset: 0; }
+  canvas { display: block; }
+  .hud { position: absolute; pointer-events: none; }
+  #title { top: 18px; left: 20px; }
+  #title h1 { margin: 0; font-size: 16px; letter-spacing: .04em; font-weight: 600; }
+  #title p { margin: 4px 0 0; color: #8b98a9; font-size: 12px; }
+  #panel { top: 18px; right: 20px; pointer-events: auto; background: rgba(16,21,30,.86);
+    border: 1px solid #22303f; border-radius: 10px; padding: 12px 14px; min-width: 232px; }
+  #panel .row { display: flex; justify-content: space-between; gap: 12px; padding: 2px 0; }
+  #panel .k { color: #8b98a9; }
+  #panel .v { color: #e6edf3; }
+  #panel .good { color: #4ade80; }
+  #panel .bad { color: #f87171; }
+  #panel hr { border: 0; border-top: 1px solid #22303f; margin: 8px 0; }
+  input[type=range] { width: 100%; accent-color: #4ade80; }
+  .btns { display: flex; gap: 6px; margin-top: 8px; }
+  button { flex: 1; background: #18222e; color: #cbd5e1; border: 1px solid #2a3a4c;
+    border-radius: 6px; padding: 5px 0; font: inherit; cursor: pointer; }
+  button:hover { background: #21303f; }
+  button.on { background: #1d3a2a; border-color: #2f6b45; color: #86efac; }
+  #labels { bottom: 16px; left: 0; right: 0; display: flex; justify-content: center; gap: 120px; color: #8b98a9; }
+  #labels b { color: #e6edf3; font-weight: 600; }
+  #status { bottom: 16px; left: 20px; color: #6b7a8c; }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<div id="app"></div>
+<div id="title" class="hud">
+  <h1>mesh-lod-lab</h1>
+  <p>QEM edge-collapse &nbsp;vs&nbsp; uniform vertex clustering · same triangle budget</p>
+</div>
+<div id="panel" class="hud">
+  <div class="row"><span class="k">source</span><span class="v" id="src">—</span></div>
+  <div class="row"><span class="k">budget</span><span class="v" id="bud">—</span></div>
+  <hr />
+  <div class="row"><span class="k">QEM tris</span><span class="v" id="qt">—</span></div>
+  <div class="row"><span class="k">QEM max err</span><span class="v good" id="qe">—</span></div>
+  <div class="row"><span class="k">cluster tris</span><span class="v" id="bt">—</span></div>
+  <div class="row"><span class="k">cluster max err</span><span class="v bad" id="be">—</span></div>
+  <hr />
+  <div class="row"><span class="k">improvement</span><span class="v good" id="imp">—</span></div>
+  <div class="row"><span class="k">compute</span><span class="v" id="ms">—</span></div>
+  <input id="ratio" type="range" min="5" max="60" step="5" value="10" />
+  <div class="btns">
+    <button data-r="0.5">50%</button>
+    <button data-r="0.25">25%</button>
+    <button data-r="0.1" class="on">10%</button>
+  </div>
+</div>
+<div id="labels" class="hud"><span>original · <b id="l0">—</b></span><span>QEM · <b id="l1">—</b></span></div>
+<div id="status" class="hud">loading sample…</div>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>
