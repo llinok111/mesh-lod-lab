@@ -1,0 +1,13 @@
+{
+  "name": "mesh-lod-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "QEM mesh decimation lab: 5.99x lower surface error than vertex clustering at 90% triangle reduction (0.180% vs 1.078% of bbox diagonal)",
+  "scripts": {
+    "gen": "node tools/gen-sample.mjs",
+    "verify": "node bench/verify.mjs",
+    "bench": "node bench/bench.mjs",
+    "serve": "python3 -m http.server 4173"
+  }
+}
